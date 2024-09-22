@@ -89,7 +89,7 @@ public class GenerateInfoFiles {
 	public static void crearArchivo1(LinkedList<Vendedor> listaVendedores) {
 		for(Vendedor vendedor: listaVendedores) {
 			// Usa el numero de documento de cada vendedor como nombre del archivo
-            try (BufferedWriter writer = new BufferedWriter(new FileWriter(vendedor.getNumeroDocumento()+".txt"))) {
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter("Archivos\\"+vendedor.getNumeroDocumento()+".txt"))) {
     			// Información del vendedor
                 writer.write(vendedor.getTipoDocumento());
                 writer.write(";");
@@ -114,7 +114,7 @@ public class GenerateInfoFiles {
 	
 	// Crea un archivo con la lista de todos los vendedores
 	public static void crearArchivo2(LinkedList<Vendedor> listaVendedores) {
-		 try (BufferedWriter writer = new BufferedWriter(new FileWriter("Información vendedores.txt"))){
+		 try (BufferedWriter writer = new BufferedWriter(new FileWriter("Archivos\\Información vendedores.txt"))){
 			 for(Vendedor vendedor: listaVendedores) {
 	            writer.write(vendedor.getTipoDocumento());
 	            writer.write(";");
@@ -145,7 +145,7 @@ public class GenerateInfoFiles {
 			}
 		}
 		// Escribe todos los productos en el archivo
-		try (BufferedWriter writer = new BufferedWriter(new FileWriter("Información productos.txt"))){
+		try (BufferedWriter writer = new BufferedWriter(new FileWriter("Archivos\\Información productos.txt"))){
 			for (HashMap<String, String> producto : productos) {
 	            writer.write(producto.get("ID"));
 	            writer.write(";");

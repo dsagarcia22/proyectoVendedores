@@ -5,6 +5,7 @@ public class Vendedor {
 	private String nombre;
 	private int dineroRecaudado;
 	
+	// Constructor para inicializar un vendedor
 	public Vendedor(String nombre, String documento) {
 		this.documento = documento;
 		this.nombre = nombre;

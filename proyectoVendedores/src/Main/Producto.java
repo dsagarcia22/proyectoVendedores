@@ -6,6 +6,7 @@ public class Producto {
 	private int precio;
 	private int cantidadVendida;
 	
+	// Constructor para inicializar un producto
 	public Producto(String id, String nombre, int precio) {
 		this.id = id;
 		this.nombre = nombre;
@@ -29,10 +30,12 @@ public class Producto {
 		return cantidadVendida;
 	}
 	
+	 // Método para añadir cantidad vendida
 	public void aumentarCantidadVendida(int cantidad) {
 		this.cantidadVendida += cantidad;
 	}
 	
+	// Representación en forma de cadena para escribir en archivos
     @Override
     public String toString() {
         return nombre + ";" + precio + ";" + cantidadVendida;

@@ -82,10 +82,17 @@ public class GerenteVentas {
                     System.err.println("Error: Formato inválido para la cantidad del producto ID " + productoId);
                     continue; // Omite la entrada
                 }
-                infoVentas.put(productoId, cantidad); // Guarda la cantidad vendida
+                //Asegura que el producta exista en el catalogo
+                if (encontrarProductoId(productoId) != null) {
+                	infoVentas.put(productoId, cantidad); // Guarda la cantidad vendida
+                } else {
+                    System.err.println("Error: Producto ID " + productoId + " no existe.");
+                    continue; // Omite la entrada
+                }
+                
             }
         } catch (IOException e) {
-            System.err.println("Error reading vendor file: " + e.getMessage());
+        	 System.err.println("Error al leer el archivo del vendedor: " + e.getMessage());
         }
         return infoVentas; // Devuelve los datos de ventas leídos
     }

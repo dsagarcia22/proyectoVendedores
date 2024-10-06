@@ -7,6 +7,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
@@ -30,6 +31,7 @@ public class Main {
 				producto.put("ID",informacionProducto[0]);
 				producto.put("Nombre",informacionProducto[1]);
 				producto.put("Precio",informacionProducto[2]);
+				producto.put("Cantidad", "0");
 				productos.add(producto);
 			}
 			readerProductos.close();
@@ -55,9 +57,10 @@ public class Main {
 		
 		// Crea el archivo con las mejores vendedores
 		crearListaMejorVendedores(vendedores,productos);
+		crearListaCantiadadProductosTotales(productos,vendedores);
 	}
 	
-	// Crea un archivo con la lista descendente de los vendedores segun sus ganancias
+		// Crea un archivo con la lista descendente de los vendedores segun sus ganancias
 		public static void crearListaMejorVendedores(LinkedList<HashMap<String, String>> listVendedores, LinkedList<HashMap<String, String>> listProductos) {
 			// Lista para almacenar la informacion de los vendedores y sus ganancias
 			LinkedHashMap<String, Integer> unorderedListVendedores = new LinkedHashMap<>();
@@ -141,6 +144,83 @@ public class Main {
 	        }
 	        return null; // Return null if not found
 	    }
+	    
+	    // Crea el archivo de los productos oraganizados por cantidad vendida
+	    public static void crearListaCantiadadProductosTotales(LinkedList<HashMap<String, String>> productos, LinkedList<HashMap<String, String>> vendedores) {
+	    	// Iterate sobre todos los vendedores
+	    	for (HashMap<String, String> vendedor : vendedores) {
+	    	    String documento = vendedor.get("Documento");
 
+	    	    // Construya la ruta del archivo en función del ID del documento del vendedor
+	    	    String vendedorFilePath = "Archivos\\" + vendedor.get("Documento") + ".txt";
+
+	    	    // Lea los datos de ventas del vendedor
+	    	    try (BufferedReader readerVendedor = new BufferedReader(new FileReader(vendedorFilePath))) {
+	    	        // Lee e ignora la primera línea
+	    	        readerVendedor.readLine();
+
+	    	        String infoProductoVendido;
+	    	        while ((infoProductoVendido = readerVendedor.readLine()) != null) {
+	    	            String[] parts = infoProductoVendido.split(";");
+
+	    	            if (parts.length < 2) {
+	    	                System.err.println("Error: Invalid format in vendor file for documento " + documento);
+	    	                continue;
+	    	            }
+
+	    	            String productoID = parts[0]; // Producto ID
+	    	            int cantidadVendida;
+
+	    	            try {
+	    	                cantidadVendida = Integer.parseInt(parts[1]); // Cantidad Vendida
+	    	            } catch (NumberFormatException e) {
+	    	                System.err.println("Error: Invalid quantity format for product ID " + productoID);
+	    	                continue;
+	    	            }
+
+	    	            // Actualizar la cantidad en la lista de productos
+	    	            for (HashMap<String, String> producto : productos) {
+	    	                if (producto.get("ID").equals(productoID)) {
+	    	                    int cantidadActual = Integer.parseInt(producto.get("Cantidad"));
+	    	                    producto.put("Cantidad", String.valueOf(cantidadActual + cantidadVendida));
+	    	                    break; // Detener la búsqueda una vez encontrado el producto
+	    	                }
+	    	            }
+	    	        }
+	    	    } catch (IOException e) {
+	    	        System.err.println("Error leyendo el archivo del vendedor " + documento + ": " + e.getMessage());
+	    	    }
+	    	}
+	    	
+	    	ordenarProductosPorCantidad(productos);
+	    	
+	    	 try(BufferedWriter writer = new BufferedWriter(new FileWriter("ListaCantidadProductosVendidos.csv"))) {
+	    		 
+	 	        for (HashMap<String, String> producto : productos) {
+		            writer.write(producto.get("Nombre"));
+		            writer.write(";");
+		            writer.write(producto.get("Precio"));
+		            writer.write(";");
+		            writer.write(producto.get("Cantidad"));
+		            writer.write("\n");
+		        }   
+	 	        writer.close();
+					
+	    	 } catch (IOException e) {
+					e.printStackTrace();
+	    	 }  	
+	    }
+	    
+	    // Ordena la lista de productos por cantidad de forma descendente
+	    private static void ordenarProductosPorCantidad(LinkedList<HashMap<String, String>> productos) {
+	        Collections.sort(productos, new Comparator<HashMap<String, String>>() {
+	            @Override
+	            public int compare(HashMap<String, String> p1, HashMap<String, String> p2) {
+	                int cantidad1 = Integer.parseInt(p1.get("Cantidad"));
+	                int cantidad2 = Integer.parseInt(p2.get("Cantidad"));
+	                return Integer.compare(cantidad2, cantidad1); // Descending order
+	            }
+	        });
+	    }
 
 }

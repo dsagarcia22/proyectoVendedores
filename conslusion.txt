@@ -1,0 +1,45 @@
+1. Lo aprendido durante el desarrollo del proyecto
+
+• Manejo de Archivos y Procesamiento de Datos en Java: Durante el desarrollo de este proyecto, una de las principales habilidades que adquirimos fue el manejo y procesamiento de archivos de texto plano. Aprendimos a leer y escribir archivos utilizando las clases BufferedReader y BufferedWriter, lo cual es decisivo para la manipulación eficiente de grandes volúmenes de datos en proyectos del mundo real. Además, el formato CSV nos permitió estructurar y almacenar la información de una manera sencilla y asequible para futuras consultas.
+
+• Buenas Prácticas de Programación: Al implementar este proyecto, nos familiarizamos con la importancia de las buenas prácticas de programación. Entendimos cómo el uso de nombres descriptivos para variables y métodos, la correcta indentación del código, y el uso de comentarios claros facilitan no solo la lectura del código por parte de otras personas, sino también su mantenimiento y actualización a lo largo del tiempo. Aprendimos a seguir los estándares de documentación de Java, utilizando Javadoc para generar una documentación clara y profesional.
+
+• Estructuración del Código Orientado a Objetos: El diseño del proyecto nos llevó a aplicar principios de Programación Orientada a Objetos (POO). Al dividir el proyecto en varias clases, como Vendedor, Producto y Venta, aprendimos a encapsular datos y comportamientos en entidades específicas, mejorando la modularidad y reutilización del código. Esto nos hizo comprender la importancia de la separación de responsabilidades en el desarrollo de software a gran escala.
+
+• Generación de Datos Pseudoaleatorios; En la etapa de generación de archivos de prueba, entendimos como generar datos de forma pseudoaleatoria utilizando la clase Random. Esto nos permitió simular escenarios realistas para probar el funcionamiento del programa bajo diferentes condiciones, y también nos ayudó a profundizar en la importancia de crear archivos de entrada coherentes para garantizar resultados válidos.
+
+• Gestión de Proyectos y Repositorios: La necesidad de compartir el proyecto en un repositorio (como GitHub) nos permitió familiarizarnos más con el uso de herramientas de control de versiones. Entendimos cómo gestionar diferentes versiones del código y cómo colaborar en proyectos de manera más eficiente mediante la creación de commits descriptivos y ramas de trabajo.
+
+• Validación de Datos y Manejo de Errores: Implementamos técnicas de validación de datos para asegurar que los archivos procesados cumplieran con el formato esperado y evitar errores al leer información incoherente o errónea. Además, aprendimos a manejar errores de forma adecuada, proporcionando mensajes claros cuando el programa fallaba, lo que me ayudó a mejorar la robustez y fiabilidad del sistema.
+
+• Organización y Priorización de Tareas en Equipo: El proyecto requería cumplir con varios entregables en diferentes etapas, lo que hizo que la organización en equipo fuera fundamental. Aprendimos a dividir las tareas en partes más pequeñas y asignarlas según las habilidades y disponibilidad de cada integrante del equipo. Además, priorizamos juntas las tareas más importantes para cumplir con los plazos establecidos. Esta coordinación nos permitió avanzar de manera más fluida, asegurándonos de que todos estuvieran alineados y que cada entrega se completara a tiempo.
+
+
+
+
+2. Posibles aplicaciones en su vida profesional de las destrezas y conocimientos adquiridos y practicados durante el desarrollo del proyecto.
+
+• Trabajo en equipo: A lo largo del proyecto, aprendimos a colaborar estrechamente. Nos dividimos las tareas según nuestras fortalezas, lo que nos permitió avanzar de manera eficiente y apoyarnos mutuamente en cada etapa. Esta experiencia nos enseñó que la comunicación abierta y la confianza son fundamentales para el éxito en cualquier proyecto profesional.
+
+• Organización y gestión de tareas: Nos enfrentamos a varios entregables, lo que nos llevó a organizar nuestro trabajo de manera más efectiva. Dividir las tareas en partes más pequeñas y establecer prioridades nos ayudó a cumplir con los plazos establecidos. Esta habilidad de planificación es algo que sin duda aplicaremos en futuros proyectos laborales.
+
+• Uso de herramientas de colaboración: Durante el desarrollo, utilizamos GitHub para gestionar nuestro código y seguir los cambios. Aprendimos a documentar nuestro trabajo y a manejar conflictos de manera efectiva. Esta experiencia nos será invaluable en el mundo profesional, donde el uso de herramientas de colaboración es esencial para el trabajo en equipo.
+
+• Buenas prácticas de programación: A medida que escribimos y revisamos nuestro código, comprendimos la importancia de mantener buenas prácticas, como la claridad en la documentación y la organización del código. Esto no solo facilita el trabajo en equipo, sino que también hace que el código sea más accesible para futuras modificaciones.
+
+
+
+
+3. Las dificultades presentadas durante el desarrollo del Proyecto.
+
+• Organización de Datos: La estructuración y organización de los datos de los archivos, para el uso de estos a la hora de crear los archivos de reporte de mejor vendedor y el archivo de cantidad de productos vendidos
+
+• Gestión de Commits: La realización de commits en el repositorio de manera organizada resultó complicada debido a la inexperiencia. Se dejaron commits con mensajes tal vez no tan claros y posiblemente los cambios en cada commit fueron demasiado grandes.
+
+• Implementación de Detección de Errores: La adición de código para detectar errores en la entrada de datos y en la lectura de archivos
+
+• Pruebas y Validaciones: Desarrollar un conjunto adecuado de pruebas para validar el comportamiento del sistema y asegurar que los cambios no introdujeran nuevos errores fue un desafío continuo. La falta de pruebas automatizadas complicó el proceso de verificación.
+
+• Documentación del Código: Mantener una documentación clara y actualizada del código fue difícil. Los comentarios en el código posiblemente no sean lo bastante claros.
+
+• Colaboración y Comunicación: La coordinación con otros miembros del equipo y la comunicación efectiva sobre el progreso y los obstáculos enfrentados fueron esenciales, pero también presentaron dificultades que debieron ser abordadas para mantener la alineación del equipo.
